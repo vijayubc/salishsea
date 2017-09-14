@@ -1,0 +1,124 @@
+#!/bin/bash
+
+export GETMDIR=$HOME/GETM/getm-git
+export GOTMDIR=$HOME/GOTM/gotm-git
+
+unset rnodes
+
+if [ "$conf" == "0048x0048" ]; then
+#  nsub=201
+   offset="offset-0030x-0024"
+fi
+if [ "$conf" == "0048x0080" ]; then
+#  nsub=126
+   offset="offset-0030x-0052"
+fi
+if [ "$conf" == "0060x0060" ]; then
+#  nsub=138
+   offset="offset-0032x-0006"
+fi
+if [ "$conf" == "0060x0068" ]; then
+#  nsub=121
+   offset="offset-0032x-0006"
+fi
+if [ "$conf" == "0064x0064" ]; then
+#  nsub=123
+   offset="offset-0026x-0025"
+fi
+if [ "$conf" == "0068x0060" ]; then
+#  nsub=124
+   offset="offset-0022x-0037"
+fi
+if [ "$conf" == "0072x0054" ]; then
+#  nsub=124
+   offset="offset-0056x-0017"
+fi
+if [ "$conf" == "0072x0072" ]; then
+#  nsub=97
+   offset="offset-0056x-0053"
+fi
+if [ "$conf" == "0076x0052" ]; then
+#  nsub=125
+   offset="offset-0064x-0041"
+fi
+if [ "$conf" == "0080x0052" ]; then
+#  nsub=121
+   offset="offset-0003x-0041"
+fi
+if [ "$conf" == "0084x0048" ]; then
+#  nsub=123
+   offset="offset-0082x-0025"
+fi
+if [ "$conf" == "0084x0084" ]; then
+#  nsub=75
+   offset="offset-0082x-0077"
+fi
+if [ "$conf" == "0088x0048" ]; then
+#  nsub=121
+   offset="offset-0037x-0024"
+fi
+if [ "$conf" == "0092x0044" ]; then
+#  nsub=126
+   offset="offset-0047x-0006"
+   offset="offset-0074x-0007"
+fi
+if [ "$conf" == "0096x0042" ]; then
+#  nsub=125
+   offset="offset-0080x+0000"
+fi
+if [ "$conf" == "0096x0096" ]; then
+#  nsub=59
+   offset="offset-0077x-0022"
+fi
+if [ "$conf" == "0100x0040" ]; then
+#  nsub=124
+   offset="offset-0076x-0009"
+fi
+if [ "$conf" == "0104x0040" ]; then
+#  nsub=120
+   offset="offset-0099x-0008"
+fi
+if [ "$conf" == "0108x0108" ]; then
+#  nsub=48
+   offset="offset-0101x-0007"
+fi
+if [ "$conf" == "0112x0036" ]; then
+#  nsub=128
+   offset="offset-0082x-0017"
+   offset="offset-0085x-0017"
+fi
+if [ "$conf" == "0120x0120" ]; then
+#  nsub=39
+   offset="offset-0009x-0089"
+fi
+if [ "$conf" == "0132x0032" ]; then
+#  nsub=122
+   offset="offset-0127x-0029"
+fi
+if [ "$conf" == "0144x0144" ]; then
+#  nsub=30
+   offset="offset-0069x-0139"
+fi
+
+if [ -z "$machinefile" ] ; then
+   machinefile=machinefile_????_v11-th08
+fi
+
+if [ -z "$rnodes" ] ; then
+   rnodes="n01 n02 n03 n04 n05 n06 n07 n08 n09 n10 n11 n12 n13 n14 n15 n16"
+fi
+
+confdir=../Configurations/$conf
+ln -sf $confdir/$offset/subdomain_spec.lst par_setup.dat
+
+make_machinefile -i $confdir/$offset/$machinefile -o machinefile -R "$rnodes" > /dev/null
+
+# Comma-separated list (for pdsh etc):
+machines=`cat machinefile | sort | uniq | tr '\n' , | sed -e "s/,$//"`
+# Space-separated list (for bash for-loop iterations etc):
+export unodes=`cat machinefile|sort|uniq|tr '\n' ' '| sed -e "s/ $//"`
+
+export PDSH="pdsh -R ssh -w $machines"
+
+echo "femern: $conf, $offset"
+echo $PDSH

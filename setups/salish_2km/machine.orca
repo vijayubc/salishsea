@@ -1,0 +1,17 @@
+#!/bin/sh
+
+export GETMDIR=$HOME/GETM/getm-git
+export GOTMDIR=$HOME/GOTM/gotm-git
+
+if [ "$conf" == "0144x0144" ]; then
+#  nsub=30
+   offset="offset-0069x-0139"
+fi
+
+confdir=../Configurations/$conf
+ln -sf $confdir/$offset/subdomain_spec.lst par_setup.dat
+
+echo "orca" > machinefile
+export PDSH=
+echo "orca: "$conf
+
