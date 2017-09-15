@@ -15,8 +15,8 @@
 			<timestep>12.0</timestep>
 			<timefmt>2</timefmt>
 			<nlast>0</nlast>
-			<start>2005-01-01 00:00:00</start>
-			<stop>2005-01-03 00:00:00</stop>
+			<start>2017-01-01 00:00:00</start>
+			<stop>2017-01-05 00:00:00</stop>
 		</time>
 		<domain>
 			<vert_cord>1</vert_cord>
@@ -26,7 +26,7 @@
 			<longitude>-124.0</longitude>
 			<latitude>48.0</latitude>
 			<f_plane>True</f_plane>
-			<openbdy>False</openbdy>
+			<openbdy>True</openbdy>
 			<bdyinfofile>bdyinfo.dat</bdyinfofile>
 			<crit_depth>0.5</crit_depth>
 			<min_depth>0.1</min_depth>
