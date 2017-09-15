@@ -1,0 +1,29 @@
+#!/bin/bash
+
+mpi_args="-f machinefile -l"
+mpi_args="-f machinefile -l -genvall"
+#echo $mpi_args
+
+#module add system_default
+export LD_LIBRARY_PATH=/opt/cdo-1.5.9/lib:/opt/hdf5-1.8.8/lib:/opt/mpich2-1.4.1p1/lib:/opt/netcdf-4.2.1.1/lib:/opt/intel/composer_xe_2013.1.117/compiler/lib/ia32
+
+np=`head -1 par_setup.dat`
+
+date
+echo "start to run GETM .."
+t1=`date +%s`
+md5sum $getmexe
+cp -p $getmexe ../KEEP/`basename $getmexe`.`date +%Y%m%d%H%M%S -r $getmexe`
+mpiexec $mpi_args -n $np $getmexe &> $logdir/log.run
+eee=$?
+t2=`date +%s`
+if [ "$eee " -eq 0 ] ; then
+   echo "... we made it"
+   echo $t2-$t1 > $$.tmp
+   wall=`bc < $$.tmp`
+   rm -f $$.tmp
+   echo "wall clock time: "$wall" secs"
+else
+   echo "GETM run failed!!"
+   return 1
+fi

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+make namelist runtype=1 parallel=False hotstart=False
+
+ulimit -s unlimited
+$HOME/local/getm/intel/16.0.4/bin/getm_spherical >& log.serial
+
