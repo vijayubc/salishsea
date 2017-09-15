@@ -1,0 +1,4 @@
+#!/bin/bash
+
+$HOME/local/getm/intel/16.0.4/bin/getm_spherical >& log.serial
+
