@@ -1,2 +1,29 @@
-0
-#876   9 r10  Fraser
+! In riverinfo.dat it is now allowed to have:
+!   empty lines
+!   comments using # or ! - everything to the right of the comment character 
+!   is discarded
+!
+! format of this file:
+!
+! a line with an integer number specifying the number of rivers to read
+!
+! lines with the following information for each of the rivers:
+! i  j  name <zl zu>
+! i,j specify the global indices of the position of the river
+! name (without spaces) is used as key to the NetCDF file with the actual data
+! zl and zu specifies the depth range over which the river influences the 
+! water column - zl and zu are depths i.e. measured from the surface. Negative
+! values have the following meaning - if zl < 0 use bottom and if zu < 0 use
+! surface. zl and zu are optional but either none or both must be specified 
+!
+! number of rivers 
+
+ 1
+!
+! here comes the actual river info data
+!  i     j                  name  zl  zu    optional comment
+!                               <optional>
+!
+
+! 97    103                  Fraser
+ 102    103                  Fraser
