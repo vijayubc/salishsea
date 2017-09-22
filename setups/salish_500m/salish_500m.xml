@@ -36,9 +36,9 @@
 			<d_gamma>40.0</d_gamma>
 			<gamma_surf>True</gamma_surf>
 			<il>1</il>
-			<ih>269</ih>
+			<ih>535</ih>
 			<jl>1</jl>
-			<jh>394</jh>
+			<jh>780</jh>
 			<z0_method>0</z0_method>
 			<z0_const>0.001</z0_const>
 		</domain>
