@@ -94,7 +94,7 @@
 			<cnpar>0.9</cnpar>
 			<cord_relax>0.0</cord_relax>
 			<adv_ver_iterations>200</adv_ver_iterations>
-			<bdy3d>True</bdy3d>
+			<bdy3d>False</bdy3d>
 			<bdyfmt_3d>2</bdyfmt_3d>
 			<bdyramp_3d>0</bdyramp_3d>
 			<bdyfile_3d>bdy_3d.nc</bdyfile_3d>
@@ -117,8 +117,8 @@
 			<max_vel>4.0</max_vel>
 		</m3d>
 		<temp>
-			<temp_method>0</temp_method>
-			<temp_const>10.0</temp_const>
+			<temp_method>1</temp_method>
+			<temp_const>9.2</temp_const>
 			<temp_format>2</temp_format>
 			<temp_file>salttemp_init.nc</temp_file>
 			<temp_name>temp</temp_name>
@@ -140,8 +140,8 @@
 			<max_temp>35.0</max_temp>
 		</temp>
 		<salt>
-			<salt_method>0</salt_method>
-			<salt_const>35.0</salt_const>
+			<salt_method>1</salt_method>
+			<salt_const>31.0</salt_const>
 			<salt_format>2</salt_format>
 			<salt_file>salttemp_init.nc</salt_file>
 			<salt_name>salt</salt_name>
