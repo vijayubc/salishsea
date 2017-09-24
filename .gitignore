@@ -1,0 +1,5 @@
+getm_fabm.inp
+getm.inp
+*.nc
+*.stderr
+*.stdout

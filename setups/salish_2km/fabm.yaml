@@ -1,0 +1,7 @@
+instances:
+  turbidity:
+    model: bb/passive
+    parameters:
+      specific_light_attenuation: 1.
+    initialization:
+      c: 0.
