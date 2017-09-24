@@ -3,3 +3,4 @@ getm.inp
 *.nc
 *.stderr
 *.stdout
+*.out
