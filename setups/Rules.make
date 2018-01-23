@@ -1,1 +1,1 @@
-../../../GETM/setups/Rules.make
+../../../source/repos/GETM/setups/Rules.make
