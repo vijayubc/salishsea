@@ -9,7 +9,7 @@ mpiexec -np 8 $exedir/getm_spherical_parallel
 mv salish_2km.2d.????.nc salish_2km.????.stderr HOT/
 
 #mmv 'restart*.out' 'restart#1.in'
-rename 's/\.out$/\.in/' restart.????.out
+rename -f 's/\.out$/\.in/' restart.????.out
 
 # run annual tidal simulation
 make namelist runtype=1 hotstart=True start="2016-01-01 00:00:00" stop="2017-01-01 00:00:00"
