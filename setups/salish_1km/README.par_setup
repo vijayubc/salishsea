@@ -1,0 +1,1 @@
+subdiv.py --ncpus 8 --nx 120 --ny 90 mask.txt  kurt
