@@ -4,3 +4,6 @@ getm.inp
 *.stderr
 *.stdout
 *.out
+*.????.in
+*.????.out
+*.swp
