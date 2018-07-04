@@ -18,7 +18,7 @@
 !
 ! number of rivers 
 
- 1
+!1 
 !
 ! here comes the actual river info data
 !  i     j                  name  zl  zu    optional comment
@@ -26,4 +26,7 @@
 !
 
 ! 97    103                  Fraser
- 102    103                  Fraser
+! 102    103                  Fraser
+2
+ 116 109 r1 # Fraser River
+ 102 131 r2 # Squamish River
