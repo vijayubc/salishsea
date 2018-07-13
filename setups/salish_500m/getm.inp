@@ -27,7 +27,7 @@
    dryrun = .false.,
    runid = 'salish_500m',
    title = 'Salish Sea 500m resolution setup',
-   parallel = .false.,
+   parallel = .true.,
    runtype = 1,
    hotstart = .false.,
    use_epoch = .true.,
@@ -56,11 +56,11 @@
 !-------------------------------------------------------------------------------
 
 &time
-   timestep = 3.0,
+   timestep = 6.0,
    timefmt = 2,
    nlast = 0,
-   start = '2017-01-01 00:00:00',
-   stop = '2017-01-05 00:00:00',
+   start = '2015-12-01 00:00:00',
+   stop = '2016-01-01 00:00:00',
 /
 
 !-------------------------------------------------------------------------------
@@ -146,12 +146,12 @@
 &domain
    vert_cord = 1,
    maxdepth = 428.0,
-   bathymetry = 'topo.nc',
+   bathymetry = 'toponew_500m.nc',
    vel_depth_method = 0,
    longitude = -124.0,
    latitude = 48.0,
    f_plane = .true.,
-   openbdy = .false.,
+   openbdy = .true.,
    bdyinfofile = 'bdyinfo.dat',
    crit_depth = 0.5,
    min_depth = 0.1,
